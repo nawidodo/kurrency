@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CurrencyCell" id="gTV-IL-0wX" customClass="CurrencyCell" customModule="Kurrency" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="212" height="155"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="212" height="155"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5k-l3-PjJ">
+                        <rect key="frame" x="0.0" y="0.0" width="212" height="155"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US$12,26" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbY-d5-3Kd" customClass="PaddingLabel" customModule="Kurrency" customModuleProvider="target">
+                                <rect key="frame" x="133.5" y="16" width="62.5" height="16.5"/>
+                                <color key="backgroundColor" red="0.99215686274509807" green="0.92156862745098034" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" red="0.44705882352941173" green="0.3529411764705882" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States Dollar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvw-dG-qPQ">
+                                <rect key="frame" x="16" y="125" width="180" height="14"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhn-5o-N86">
+                                <rect key="frame" x="16" y="102.5" width="34" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="uvw-dG-qPQ" secondAttribute="trailing" constant="16" id="3dY-N7-Tay"/>
+                            <constraint firstItem="uvw-dG-qPQ" firstAttribute="leading" secondItem="u5k-l3-PjJ" secondAttribute="leading" constant="16" id="Hss-au-lnJ"/>
+                            <constraint firstItem="sbY-d5-3Kd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="u5k-l3-PjJ" secondAttribute="leading" constant="16" id="MLc-NI-jzR"/>
+                            <constraint firstAttribute="bottom" secondItem="uvw-dG-qPQ" secondAttribute="bottom" constant="16" id="glk-h4-XCK"/>
+                            <constraint firstItem="uvw-dG-qPQ" firstAttribute="top" secondItem="Vhn-5o-N86" secondAttribute="bottom" constant="4" id="jjj-O1-Zyy"/>
+                            <constraint firstAttribute="trailing" secondItem="sbY-d5-3Kd" secondAttribute="trailing" constant="16" id="uOK-Ak-M6G"/>
+                            <constraint firstItem="Vhn-5o-N86" firstAttribute="leading" secondItem="uvw-dG-qPQ" secondAttribute="leading" id="vcr-80-tHO"/>
+                            <constraint firstItem="sbY-d5-3Kd" firstAttribute="top" secondItem="u5k-l3-PjJ" secondAttribute="top" constant="16" id="zRP-uB-2SH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="u5k-l3-PjJ" secondAttribute="bottom" id="Gfh-hY-A1h"/>
+                <constraint firstItem="u5k-l3-PjJ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eRi-GB-tQ4"/>
+                <constraint firstItem="u5k-l3-PjJ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hNW-Mp-7Nh"/>
+                <constraint firstAttribute="trailing" secondItem="u5k-l3-PjJ" secondAttribute="trailing" id="kUH-Po-Vo5"/>
+            </constraints>
+            <size key="customSize" width="212" height="155"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="8"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="amountLabel" destination="sbY-d5-3Kd" id="LUL-ia-xGD"/>
+                <outlet property="idLabel" destination="Vhn-5o-N86" id="ETx-Nb-rFt"/>
+                <outlet property="nameLabel" destination="uvw-dG-qPQ" id="PEi-xi-LbO"/>
+            </connections>
+            <point key="canvasLocation" x="155.07246376811597" y="134.93303571428569"/>
+        </collectionViewCell>
+    </objects>
+    <designables>
+        <designable name="sbY-d5-3Kd">
+            <size key="intrinsicContentSize" width="62.5" height="16.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

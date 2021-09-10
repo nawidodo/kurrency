@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>baseURL</key>
+	<dict>
+		<key>relative</key>
+		<string>http://api.currencylayer.com</string>
+	</dict>
+	<key>listPath</key>
+	<string>/list</string>
+	<key>valuePath</key>
+	<string>/live</string>
+	<key>accessKey</key>
+	<string>59215c5d23d3686efc861c57911b7439</string>
+</dict>
+</plist>
