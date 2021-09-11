@@ -9,7 +9,7 @@
 	</dict>
 	<key>listPath</key>
 	<string>/list</string>
-	<key>valuePath</key>
+	<key>ratePath</key>
 	<string>/live</string>
 	<key>accessKey</key>
 	<string>59215c5d23d3686efc861c57911b7439</string>

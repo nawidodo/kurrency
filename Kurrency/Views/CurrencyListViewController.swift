@@ -15,7 +15,6 @@ struct ListSection {
 class CurrencyListViewController: UITableViewController {
 
     var viewModel: ListViewModelType
-    
     var cellID = "cellID"
     
     required init(viewModel: ListViewModelType) {
@@ -66,7 +65,12 @@ class CurrencyListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         self.dismiss(animated: true, completion: nil)
         let currency = viewModel.getCurrency(indexPath: indexPath)
-        viewModel.didChoose(currency: currency)
+        switch viewModel.currentMode {
+        case .base:
+            viewModel.baseDidChange(currency: currency)
+        default:
+            viewModel.didChoose(currency: currency)
+        }
     }
 }
 

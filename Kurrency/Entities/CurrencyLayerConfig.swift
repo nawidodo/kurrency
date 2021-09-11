@@ -11,5 +11,5 @@ struct CurrencyLayerConfig: Codable {
     var accessKey: String
     var baseURL: URL
     var listPath: String
-    var valuePath: String
+    var ratePath: String
 }

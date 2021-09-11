@@ -23,3 +23,9 @@ extension Currency: Hashable {
     }
 }
 
+extension Currency: Comparable {
+    static func < (lhs: Currency, rhs: Currency) -> Bool {
+        lhs.id < rhs.id
+    }
+}
+
