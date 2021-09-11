@@ -14,7 +14,7 @@ typealias Quote = [String: Double]
 struct CurrencyRateResponse: Codable {
     let success: Bool
     let terms, privacy: String
-    let timestamp: Int
+    let timestamp: TimeInterval
     let source: String
     let quotes: Quote
     

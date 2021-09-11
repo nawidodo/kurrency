@@ -12,6 +12,7 @@ class CurrencyService: NSObject, CurrencyServiceType {
             
     private let config = ConfigManager.shared.config
     private let builder = RequestBuilder()
+    private var latestUpdate: TimeInterval = Date().timeIntervalSince1970
         
     func fetchCurrencies() -> AnyPublisher<Set<Currency>, Error> {
         var currencyList = CurrencyListRequest(url: config.baseURL, path: config.listPath)
@@ -33,14 +34,23 @@ class CurrencyService: NSObject, CurrencyServiceType {
         req.queries["access_key"] = config.accessKey
         req.queries["currencies"] = quotes
         req.queries["source"] = source
-        guard let request = builder.build(endpoint: req) else {
+        guard var request = builder.build(endpoint: req) else {
             return Fail(error: ServiceError.request).eraseToAnyPublisher()
         }
+        
+        //Invalidate cache after 30*60 = 30 minutes
+        if Date().timeIntervalSince1970 - latestUpdate >= 30*60 {
+            request.cachePolicy = .reloadIgnoringCacheData
+        }
+    
         return URLSession.shared
             .dataTaskPublisher(for: request)
             .map(\.data)
             .decode(type: CurrencyRateResponse.self, decoder: JSONDecoder())
-            .map { $0.rates() }
+            .map { [unowned self] response in
+                latestUpdate = Date().timeIntervalSince1970
+                return response.rates()
+            }
             .eraseToAnyPublisher()
     }
 }

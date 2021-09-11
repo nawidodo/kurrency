@@ -34,8 +34,13 @@
 		CDC67A1926EB81F0003E973A /* CurrencyListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1826EB81F0003E973A /* CurrencyListFactory.swift */; };
 		CDC67A1E26EB899D003E973A /* CurrencyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1D26EB899D003E973A /* CurrencyRouter.swift */; };
 		CDC67A3C26EBAA03003E973A /* CurrencyRateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A3B26EBAA03003E973A /* CurrencyRateRequest.swift */; };
-		CDC67A4126EBAC27003E973A /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A4026EBAC27003E973A /* Rate.swift */; };
 		CDC67A4626EBAC7E003E973A /* CurrencyRateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A4526EBAC7E003E973A /* CurrencyRateResponse.swift */; };
+		CDC67A7126EC9787003E973A /* UITextfield+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A7026EC9787003E973A /* UITextfield+Extensions.swift */; };
+		CDC67A7626EC97B6003E973A /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A7526EC97B6003E973A /* String+Extensions.swift */; };
+		CDC67A7B26EC97FA003E973A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A7A26EC97FA003E973A /* UIView+Extensions.swift */; };
+		CDC67A8026EC9861003E973A /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A7F26EC9861003E973A /* Double+Extensions.swift */; };
+		CDC67A8526EC9881003E973A /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A8426EC9881003E973A /* UIColor+Extensions.swift */; };
+		CDC67A8A26EC98BB003E973A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A8926EC98BB003E973A /* Bundle+Extensions.swift */; };
 		CDE3CAC226E8F3E5008E504B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE3CAC126E8F3E5008E504B /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -90,8 +95,13 @@
 		CDC67A1826EB81F0003E973A /* CurrencyListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListFactory.swift; sourceTree = "<group>"; };
 		CDC67A1D26EB899D003E973A /* CurrencyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRouter.swift; sourceTree = "<group>"; };
 		CDC67A3B26EBAA03003E973A /* CurrencyRateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateRequest.swift; sourceTree = "<group>"; };
-		CDC67A4026EBAC27003E973A /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 		CDC67A4526EBAC7E003E973A /* CurrencyRateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRateResponse.swift; sourceTree = "<group>"; };
+		CDC67A7026EC9787003E973A /* UITextfield+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextfield+Extensions.swift"; sourceTree = "<group>"; };
+		CDC67A7526EC97B6003E973A /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		CDC67A7A26EC97FA003E973A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		CDC67A7F26EC9861003E973A /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		CDC67A8426EC9881003E973A /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		CDC67A8926EC98BB003E973A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		CDE3CAC126E8F3E5008E504B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,11 +198,11 @@
 		CDC67A4B26EBDCF1003E973A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CDC67A1326EB7F0B003E973A /* CurrencyListViewController.swift */,
 				CD35EE0C26E8A137005E3C61 /* MainViewController.swift */,
 				CDE3CAC126E8F3E5008E504B /* MainViewController.xib */,
 				CD35EE3026E8C2F2005E3C61 /* CurrencyCell.swift */,
 				CD35EE3126E8C2F2005E3C61 /* CurrencyCell.xib */,
+				CDC67A1326EB7F0B003E973A /* CurrencyListViewController.swift */,
 				CD35EE3726E8C721005E3C61 /* PaddingLabel.swift */,
 			);
 			path = Views;
@@ -209,7 +219,6 @@
 				CD56BCF526EB0B46007BE033 /* CurrencyListResponse.swift */,
 				CDC67A4526EBAC7E003E973A /* CurrencyRateResponse.swift */,
 				CD56BD0626EB10DF007BE033 /* Currency.swift */,
-				CDC67A4026EBAC27003E973A /* Rate.swift */,
 				CD56BD1126EB4421007BE033 /* Error.swift */,
 			);
 			path = Entities;
@@ -246,6 +255,12 @@
 			isa = PBXGroup;
 			children = (
 				CD35EE1626E8A262005E3C61 /* Extensions.swift */,
+				CDC67A7026EC9787003E973A /* UITextfield+Extensions.swift */,
+				CDC67A7526EC97B6003E973A /* String+Extensions.swift */,
+				CDC67A7A26EC97FA003E973A /* UIView+Extensions.swift */,
+				CDC67A7F26EC9861003E973A /* Double+Extensions.swift */,
+				CDC67A8426EC9881003E973A /* UIColor+Extensions.swift */,
+				CDC67A8926EC98BB003E973A /* Bundle+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,26 +406,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDC67A1426EB7F0B003E973A /* CurrencyListViewController.swift in Sources */,
+				CDC67A7126EC9787003E973A /* UITextfield+Extensions.swift in Sources */,
 				CD56BCFD26EB0B47007BE033 /* CurrencyListResponse.swift in Sources */,
+				CDC67A8026EC9861003E973A /* Double+Extensions.swift in Sources */,
 				CD56BD0126EB0B47007BE033 /* CurrencyService.swift in Sources */,
+				CDC67A8A26EC98BB003E973A /* Bundle+Extensions.swift in Sources */,
 				CDC67A3C26EBAA03003E973A /* CurrencyRateRequest.swift in Sources */,
 				CD35EE3226E8C2F2005E3C61 /* CurrencyCell.swift in Sources */,
 				CD35EE1226E8A175005E3C61 /* MainViewModel.swift in Sources */,
 				CD56BCFB26EB0B47007BE033 /* RequestBuilder.swift in Sources */,
 				CDC67A4626EBAC7E003E973A /* CurrencyRateResponse.swift in Sources */,
 				CD56BD1A26EB47D5007BE033 /* MainViewControllerFactory.swift in Sources */,
+				CDC67A8526EC9881003E973A /* UIColor+Extensions.swift in Sources */,
 				CD56BCFE26EB0B47007BE033 /* CurrencyListRequest.swift in Sources */,
 				CD56BD1226EB4421007BE033 /* Error.swift in Sources */,
 				CD35EE1726E8A262005E3C61 /* Extensions.swift in Sources */,
 				CDC67A1926EB81F0003E973A /* CurrencyListFactory.swift in Sources */,
 				CD35EDD426E89F9C005E3C61 /* AppDelegate.swift in Sources */,
+				CDC67A7626EC97B6003E973A /* String+Extensions.swift in Sources */,
 				CDC67A1E26EB899D003E973A /* CurrencyRouter.swift in Sources */,
 				CD56BCFC26EB0B47007BE033 /* CurrencyLayerConfig.swift in Sources */,
+				CDC67A7B26EC97FA003E973A /* UIView+Extensions.swift in Sources */,
 				CD35EE3826E8C721005E3C61 /* PaddingLabel.swift in Sources */,
 				CD35EDD626E89F9C005E3C61 /* SceneDelegate.swift in Sources */,
 				CD56BCEF26EB0B35007BE033 /* EndpointType.swift in Sources */,
 				CD56BD0726EB10DF007BE033 /* Currency.swift in Sources */,
-				CDC67A4126EBAC27003E973A /* Rate.swift in Sources */,
 				CD35EE0D26E8A137005E3C61 /* MainViewController.swift in Sources */,
 				CD56BCFF26EB0B47007BE033 /* ConfigManager.swift in Sources */,
 			);

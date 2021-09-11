@@ -55,7 +55,7 @@ class MainViewModel: NSObject, MainViewModelType {
     var didGetQuotes: Completion?
     var baseDidChange: StringCompletion?
     var amountDidChange: Completion?
-    var amount: Double = 0
+    var amount: Double = 1
     var factor: Double = 1
     var multiplier: Double {
         return amount / factor
@@ -83,7 +83,7 @@ class MainViewModel: NSObject, MainViewModelType {
             .store(in: &subscribers)
     }
     
-    func getQuotes() {
+    private func runLiveUpdate() {
         service
             .fetchQuotes(currencies: shownCurrencies, source: "USD")
             .receive(on: DispatchQueue.main)
@@ -105,12 +105,23 @@ class MainViewModel: NSObject, MainViewModelType {
                 }
                 switch currentMode {
                 case .base:
-                    shownCurrencies.removeLast()
+                    let _ = shownCurrencies.popLast()
                     baseDidChange?(selectedID)
                 default:
                     didGetQuotes?()
                 }
             })
+            .store(in: &subscribers)
+    }
+    
+    
+    func getQuotes() {
+        runLiveUpdate()
+        Timer.publish(every: 30*60, on: .current, in: .default)
+            .autoconnect()
+            .sink { [unowned self] _ in
+                runLiveUpdate()
+            }
             .store(in: &subscribers)
     }
     
