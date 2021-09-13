@@ -8,9 +8,9 @@
 import Foundation
 
 class Currency: NSObject, Codable {
-    @objc var symbol: String =  ""
-    @objc var name: String = ""
-    var value: Double = 0 // Relative to USD
+    @objc var symbol: String =  "USD"
+    @objc var name: String = "United State Dollar"
+    var value: Double = 1 // Relative to USD
         
     enum ExpressionKeys: String {
         case symbol

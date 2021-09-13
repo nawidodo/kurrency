@@ -53,6 +53,7 @@ class MainViewModel: NSObject, MainViewModelType {
     private(set) var shownCurrencies: [Currency] = []
     private(set) var router: RouterType
     private var listFilter: NSPredicate?
+    public var cacheService: CacheServiceType?
     var selectedID: String = "USD"
     var selectedIndex: Int = 0
     var didChooseCurrency: Completion?
@@ -65,6 +66,7 @@ class MainViewModel: NSObject, MainViewModelType {
         return amount / factor
     }
     var currentMode: ListUseCase = .add
+    
     
     init(service: CurrencyServiceType, router: RouterType, cache: ViewModelCache? = nil) {
         self.service = service
@@ -128,7 +130,7 @@ class MainViewModel: NSObject, MainViewModelType {
     
     private func saveCache() {
         let cache = ViewModelCache(currencies: currencies, shownCurrencies: shownCurrencies, amount: amount, factor: factor, selectedID: selectedID)
-        UserDefaults.standard.setObject(cache, forKey: MainViewModel.id)
+        cacheService?.save(cache)
     }
     
     

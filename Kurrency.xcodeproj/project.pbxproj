@@ -36,6 +36,7 @@
 		CD56BD1A26EB47D5007BE033 /* MainViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56BD1926EB47D5007BE033 /* MainViewControllerFactory.swift */; };
 		CD7064A726EF25550066C235 /* ViewModelCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7064A626EF25550066C235 /* ViewModelCache.swift */; };
 		CD7064AB26EF25EE0066C235 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7064AA26EF25EE0066C235 /* UserDefaults+Extensions.swift */; };
+		CD9CE2D326EF384600E97393 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9CE2D226EF384600E97393 /* CacheService.swift */; };
 		CDC67A1426EB7F0B003E973A /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1326EB7F0B003E973A /* CurrencyListViewController.swift */; };
 		CDC67A1926EB81F0003E973A /* CurrencyListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1826EB81F0003E973A /* CurrencyListFactory.swift */; };
 		CDC67A1E26EB899D003E973A /* CurrencyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1D26EB899D003E973A /* CurrencyRouter.swift */; };
@@ -94,6 +95,7 @@
 		CD56BD1926EB47D5007BE033 /* MainViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerFactory.swift; sourceTree = "<group>"; };
 		CD7064A626EF25550066C235 /* ViewModelCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCache.swift; sourceTree = "<group>"; };
 		CD7064AA26EF25EE0066C235 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		CD9CE2D226EF384600E97393 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		CDC67A1326EB7F0B003E973A /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		CDC67A1826EB81F0003E973A /* CurrencyListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListFactory.swift; sourceTree = "<group>"; };
 		CDC67A1D26EB899D003E973A /* CurrencyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRouter.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				CD56BCF726EB0B47007BE033 /* ConfigManager.swift */,
+				CD9CE2D226EF384600E97393 /* CacheService.swift */,
 				CD56BCF926EB0B47007BE033 /* CurrencyService.swift */,
 			);
 			path = Services;
@@ -380,6 +383,7 @@
 				CD56BCFB26EB0B47007BE033 /* RequestBuilder.swift in Sources */,
 				CDC67A4626EBAC7E003E973A /* CurrencyRateResponse.swift in Sources */,
 				CD56BD1A26EB47D5007BE033 /* MainViewControllerFactory.swift in Sources */,
+				CD9CE2D326EF384600E97393 /* CacheService.swift in Sources */,
 				CDC67A8526EC9881003E973A /* UIColor+Extensions.swift in Sources */,
 				CD56BCFE26EB0B47007BE033 /* CurrencyListRequest.swift in Sources */,
 				CD7064A726EF25550066C235 /* ViewModelCache.swift in Sources */,
