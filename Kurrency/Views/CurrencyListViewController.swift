@@ -17,6 +17,9 @@ class CurrencyListViewController: UITableViewController {
     var viewModel: ListViewModelType
     var cellID = "cellID"
     
+    var searchController: UISearchController!
+
+    
     required init(viewModel: ListViewModelType) {
         self.viewModel = viewModel
         super.init(style: .insetGrouped)
@@ -29,6 +32,16 @@ class CurrencyListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(CurrencyIndexCell.self, forCellReuseIdentifier: cellID)
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.autocapitalizationType = .none
+        searchController.searchBar.delegate = self // Monitor when the search button is tapped.
+        searchController.obscuresBackgroundDuringPresentation = false
+        // Place the search bar in the navigation bar.
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
+
     }
 
     // MARK: - Table view data source
@@ -46,7 +59,7 @@ class CurrencyListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         let currency = viewModel.getCurrency(indexPath: indexPath)
-        cell.textLabel?.text = currency.id
+        cell.textLabel?.text = currency.symbol
         cell.detailTextLabel?.text = currency.name
         // Configure the cell...
 
@@ -62,8 +75,6 @@ class CurrencyListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        self.dismiss(animated: true, completion: nil)
         let currency = viewModel.getCurrency(indexPath: indexPath)
         switch viewModel.currentMode {
         case .base:
@@ -71,6 +82,25 @@ class CurrencyListViewController: UITableViewController {
         default:
             viewModel.didChoose(currency: currency)
         }
+        searchController.isActive = false
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CurrencyListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text!
+        viewModel.searchBar(text: text) { [unowned self] in
+            tableView.reloadData()
+        }
+    }
+    
+}
+
+extension CurrencyListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 

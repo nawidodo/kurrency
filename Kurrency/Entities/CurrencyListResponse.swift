@@ -17,7 +17,7 @@ struct CurrencyListResponse: Codable {
         var curr = Set<Currency>()
         for (key, value) in self.currencies.sorted(by: <) {
             let cu = Currency()
-            cu.id = key
+            cu.symbol = key
             cu.name = value
             curr.insert(cu)
         }

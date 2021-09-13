@@ -19,7 +19,7 @@ extension Bundle {
             return config
         } catch let error {
             print(error.localizedDescription)
+            return nil
         }
-        return nil
     }
 }

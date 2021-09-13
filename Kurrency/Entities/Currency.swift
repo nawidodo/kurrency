@@ -7,25 +7,19 @@
 
 import Foundation
 
-class Currency {
-    var id: String =  ""
-    var name: String = ""
+class Currency: NSObject {
+    @objc var symbol: String =  ""
+    @objc var name: String = ""
     var value: Double = 0 // Relative to USD
-}
-
-extension Currency: Hashable {
-    static func == (lhs: Currency, rhs: Currency) -> Bool {
-        return lhs.id == rhs.id
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        
+    enum ExpressionKeys: String {
+        case symbol
+        case name
     }
 }
 
 extension Currency: Comparable {
     static func < (lhs: Currency, rhs: Currency) -> Bool {
-        lhs.id < rhs.id
+        lhs.symbol < rhs.symbol
     }
 }
-

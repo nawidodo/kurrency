@@ -99,7 +99,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CurrencyCell.id, for: indexPath) as! CurrencyCell
         let currency = viewModel.shownCurrencies[indexPath.row]
-        cell.idLabel.text = currency.id
+        cell.idLabel.text = currency.symbol
         cell.nameLabel.text = currency.name
         cell.amountLabel.text = (currency.value * viewModel.multiplier).formatted
         cell.addTapGestureRecognizer { [unowned self] in

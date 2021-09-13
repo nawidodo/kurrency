@@ -5,11 +5,12 @@
 //  Created by Nugroho Arief Widodo on 10/09/21.
 //
 
-import Foundation
+import UIKit
 
 class CurrencyListFactory {
-    static func build(viewModel: ListViewModelType) -> CurrencyListViewController {
+    static func build(viewModel: ListViewModelType) -> UIViewController {
         let vc = CurrencyListViewController(viewModel: viewModel)
-        return vc
+        let nav = UINavigationController(rootViewController: vc)
+        return nav
     }
 }

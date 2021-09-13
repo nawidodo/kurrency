@@ -29,7 +29,7 @@ class CurrencyService: NSObject, CurrencyServiceType {
     }
     
     func fetchQuotes(currencies: [Currency], source: String) -> AnyPublisher<Quote, Error> {
-        let quotes = currencies.map { $0.id }.joined(separator: ",")
+        let quotes = currencies.map { $0.symbol }.joined(separator: ",")
         var req = CurrencyRateRequest(url: config.baseURL, path: config.ratePath)
         req.queries["access_key"] = config.accessKey
         req.queries["currencies"] = quotes

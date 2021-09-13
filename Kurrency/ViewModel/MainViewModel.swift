@@ -21,6 +21,7 @@ typealias StringCompletion = (String) -> Void
 protocol MainViewModelType {
     var selectedID: String {get set}
     var shownCurrencies: [Currency] {get}
+    var currencies: Set<Currency> {get}
     var didChooseCurrency: Completion? {get set}
     var didGetQuotes: Completion? {get set}
     var baseDidChange: StringCompletion? {get set}
@@ -28,8 +29,8 @@ protocol MainViewModelType {
     var amount: Double {get set}
     var multiplier: Double {get}
     func fetchCurrencies()
-    func openCurrencyList(mode: ListUseCase)
     func getQuotes()
+    func openCurrencyList(mode: ListUseCase)
     func updateAmount(_ amount: Double)
     func showOptionsFor(index: Int, currency: Currency)
 }
@@ -40,17 +41,19 @@ protocol ListViewModelType {
     func didChoose(currency: Currency)
     func baseDidChange(currency: Currency)
     func getCurrency(indexPath: IndexPath) -> Currency
+    func searchBar(text: String, completion: Completion)
 }
 
 class MainViewModel: NSObject, MainViewModelType {
-            
+                
     private var service: CurrencyServiceType
     private var subscribers: Set<AnyCancellable> = []
     private(set) var currencies: Set<Currency> = []
     private(set) var shownCurrencies: [Currency] = []
     private(set) var router: RouterType
+    private var listFilter: NSPredicate?
     var selectedID: String = "USD"
-    var selectedIndex: Int = -1
+    var selectedIndex: Int = 0
     var didChooseCurrency: Completion?
     var didGetQuotes: Completion?
     var baseDidChange: StringCompletion?
@@ -96,10 +99,10 @@ class MainViewModel: NSObject, MainViewModelType {
                 }
             }, receiveValue: { [unowned self] quote in
                 for currency in shownCurrencies {
-                    if let value = quote[currency.id] {
+                    if let value = quote[currency.symbol] {
                         currency.value = value
                     }
-                    if selectedID == currency.id {
+                    if selectedID == currency.symbol {
                         factor = currency.value
                     }
                 }
@@ -127,6 +130,7 @@ class MainViewModel: NSObject, MainViewModelType {
     
     func openCurrencyList(mode: ListUseCase) {
         currentMode = mode
+        listFilter = nil
         router.openList(viewModel: self)
     }
     
@@ -147,15 +151,18 @@ class MainViewModel: NSObject, MainViewModelType {
             didChooseCurrency?()
         }
         
-        router.showOptions(title: currency.id)
+        router.showOptions(title: currency.symbol)
     }
 }
 
 extension MainViewModel: ListViewModelType {
-    
+        
     var sections: [ListSection] {
-        let data = currentMode == .base ? currencies : currencies.subtracting(shownCurrencies).filter { $0.id != selectedID }
-        let temp = Dictionary(grouping: data, by: { String($0.id.prefix(1)) } )
+        var data = currentMode == .base ? currencies : currencies.subtracting(shownCurrencies).filter { $0.symbol != selectedID }
+        if let listFilter = listFilter {
+            data = data.filter { listFilter.evaluate(with: $0) }
+        }
+        let temp = Dictionary(grouping: data, by: { String($0.symbol.prefix(1)) } )
         let keys = temp.keys.sorted()
         let sections = keys.map { ListSection(letter: $0, currencies: temp[$0]!.sorted(by: <)) }
         return sections
@@ -169,7 +176,6 @@ extension MainViewModel: ListViewModelType {
         default:
             shownCurrencies.append(currency)
         }
-        
         didChooseCurrency?()
     }
     
@@ -178,9 +184,59 @@ extension MainViewModel: ListViewModelType {
     }
     
     func baseDidChange(currency: Currency) {
-        selectedID = currency.id
+        selectedID = currency.symbol
         shownCurrencies.append(currency)
         getQuotes()
     }
+    
+    func searchBar(text: String, completion: Completion) {
+        // Strip out all the leading and trailing spaces.
+        guard !text.isEmpty else { return }
+        let whitespaceCharacterSet = CharacterSet.whitespaces
+        let strippedString =
+            text.trimmingCharacters(in: whitespaceCharacterSet)
+        let searchItems = strippedString.components(separatedBy: " ") as [String]
 
+        // Build all the "AND" expressions for each value in searchString.
+        let andMatchPredicates: [NSPredicate] = searchItems.map { searchString in
+            findMatches(searchString: searchString)
+        }
+        
+        let finalCompoundPredicate =
+            NSCompoundPredicate(andPredicateWithSubpredicates: andMatchPredicates)
+        self.listFilter = finalCompoundPredicate
+        completion()
+    }
+    
+    private func findMatches(searchString: String) -> NSCompoundPredicate {
+        var searchItemsPredicate = [NSPredicate]()
+        
+        let idExpression = NSExpression(forKeyPath: Currency.ExpressionKeys.symbol.rawValue)
+        let idStringExpression = NSExpression(forConstantValue: searchString)
+        
+        let titleSearchComparisonPredicate =
+        NSComparisonPredicate(leftExpression: idExpression,
+                              rightExpression: idStringExpression,
+                              modifier: .direct,
+                              type: .contains,
+                              options: [.caseInsensitive, .diacriticInsensitive])
+        
+        searchItemsPredicate.append(titleSearchComparisonPredicate)
+        
+        let nameExpression = NSExpression(forKeyPath: Currency.ExpressionKeys.name.rawValue)
+        let nameStringExpression = NSExpression(forConstantValue: searchString)
+        
+        let nameSearchComparisonPredicate =
+        NSComparisonPredicate(leftExpression: nameExpression,
+                              rightExpression: nameStringExpression,
+                              modifier: .direct,
+                              type: .contains,
+                              options: [.caseInsensitive, .diacriticInsensitive])
+        
+        searchItemsPredicate.append(nameSearchComparisonPredicate)
+        
+        let finalCompoundPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: searchItemsPredicate)
+        return finalCompoundPredicate
+
+    }
 }

@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0D6B9626EEA881009C77C4 /* CurrencyServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB18026EE177B006A6A90 /* CurrencyServiceMock.swift */; };
+		CD0D6BA026EEAAB5009C77C4 /* CurrencyRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB18526EE1CFF006A6A90 /* CurrencyRouterMock.swift */; };
+		CD2AB16F26EE0FA5006A6A90 /* ConfigLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB16E26EE0FA5006A6A90 /* ConfigLoaderTest.swift */; };
+		CD2AB17426EE1170006A6A90 /* TestConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD2AB17326EE1170006A6A90 /* TestConfig.plist */; };
+		CD2AB17C26EE16B8006A6A90 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB17B26EE16B8006A6A90 /* MainViewModelTests.swift */; };
+		CD2AB18E26EE1E70006A6A90 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB18D26EE1E70006A6A90 /* XCTestCase+Extensions.swift */; };
 		CD35EDD426E89F9C005E3C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EDD326E89F9C005E3C61 /* AppDelegate.swift */; };
 		CD35EDD626E89F9C005E3C61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EDD526E89F9C005E3C61 /* SceneDelegate.swift */; };
 		CD35EDDD26E89F9E005E3C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD35EDDC26E89F9E005E3C61 /* Assets.xcassets */; };
 		CD35EDE026E89F9E005E3C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD35EDDE26E89F9E005E3C61 /* LaunchScreen.storyboard */; };
-		CD35EDEB26E89F9E005E3C61 /* KurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EDEA26E89F9E005E3C61 /* KurrencyTests.swift */; };
-		CD35EDF626E89F9E005E3C61 /* KurrencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EDF526E89F9E005E3C61 /* KurrencyUITests.swift */; };
 		CD35EE0D26E8A137005E3C61 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EE0C26E8A137005E3C61 /* MainViewController.swift */; };
 		CD35EE1226E8A175005E3C61 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EE1126E8A175005E3C61 /* MainViewModel.swift */; };
 		CD35EE1726E8A262005E3C61 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EE1626E8A262005E3C61 /* Extensions.swift */; };
@@ -52,16 +56,15 @@
 			remoteGlobalIDString = CD35EDCF26E89F9C005E3C61;
 			remoteInfo = Kurrency;
 		};
-		CD35EDF226E89F9E005E3C61 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD35EDC826E89F9C005E3C61 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CD35EDCF26E89F9C005E3C61;
-			remoteInfo = Kurrency;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD2AB16E26EE0FA5006A6A90 /* ConfigLoaderTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigLoaderTest.swift; sourceTree = "<group>"; };
+		CD2AB17326EE1170006A6A90 /* TestConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestConfig.plist; sourceTree = "<group>"; };
+		CD2AB17B26EE16B8006A6A90 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		CD2AB18026EE177B006A6A90 /* CurrencyServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceMock.swift; sourceTree = "<group>"; };
+		CD2AB18526EE1CFF006A6A90 /* CurrencyRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRouterMock.swift; sourceTree = "<group>"; };
+		CD2AB18D26EE1E70006A6A90 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		CD35EDD026E89F9C005E3C61 /* Kurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD35EDD326E89F9C005E3C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD35EDD526E89F9C005E3C61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,11 +72,7 @@
 		CD35EDDF26E89F9E005E3C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD35EDE126E89F9E005E3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD35EDE626E89F9E005E3C61 /* KurrencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurrencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD35EDEA26E89F9E005E3C61 /* KurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurrencyTests.swift; sourceTree = "<group>"; };
 		CD35EDEC26E89F9E005E3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD35EDF126E89F9E005E3C61 /* KurrencyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KurrencyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD35EDF526E89F9E005E3C61 /* KurrencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KurrencyUITests.swift; sourceTree = "<group>"; };
-		CD35EDF726E89F9E005E3C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD35EE0C26E8A137005E3C61 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CD35EE1126E8A175005E3C61 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		CD35EE1626E8A262005E3C61 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -120,13 +119,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CD35EDEE26E89F9E005E3C61 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,7 +127,6 @@
 			children = (
 				CD35EDD226E89F9C005E3C61 /* Kurrency */,
 				CD35EDE926E89F9E005E3C61 /* KurrencyTests */,
-				CD35EDF426E89F9E005E3C61 /* KurrencyUITests */,
 				CD35EDD126E89F9C005E3C61 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -145,7 +136,6 @@
 			children = (
 				CD35EDD026E89F9C005E3C61 /* Kurrency.app */,
 				CD35EDE626E89F9E005E3C61 /* KurrencyTests.xctest */,
-				CD35EDF126E89F9E005E3C61 /* KurrencyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,19 +159,15 @@
 		CD35EDE926E89F9E005E3C61 /* KurrencyTests */ = {
 			isa = PBXGroup;
 			children = (
-				CD35EDEA26E89F9E005E3C61 /* KurrencyTests.swift */,
+				CD2AB17326EE1170006A6A90 /* TestConfig.plist */,
 				CD35EDEC26E89F9E005E3C61 /* Info.plist */,
+				CD2AB16E26EE0FA5006A6A90 /* ConfigLoaderTest.swift */,
+				CD2AB17B26EE16B8006A6A90 /* MainViewModelTests.swift */,
+				CD2AB18026EE177B006A6A90 /* CurrencyServiceMock.swift */,
+				CD2AB18526EE1CFF006A6A90 /* CurrencyRouterMock.swift */,
+				CD2AB18D26EE1E70006A6A90 /* XCTestCase+Extensions.swift */,
 			);
 			path = KurrencyTests;
-			sourceTree = "<group>";
-		};
-		CD35EDF426E89F9E005E3C61 /* KurrencyUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CD35EDF526E89F9E005E3C61 /* KurrencyUITests.swift */,
-				CD35EDF726E89F9E005E3C61 /* Info.plist */,
-			);
-			path = KurrencyUITests;
 			sourceTree = "<group>";
 		};
 		CDC67A4A26EBDCBC003E973A /* Boilerplate */ = {
@@ -311,24 +297,6 @@
 			productReference = CD35EDE626E89F9E005E3C61 /* KurrencyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CD35EDF026E89F9E005E3C61 /* KurrencyUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CD35EE0026E89F9E005E3C61 /* Build configuration list for PBXNativeTarget "KurrencyUITests" */;
-			buildPhases = (
-				CD35EDED26E89F9E005E3C61 /* Sources */,
-				CD35EDEE26E89F9E005E3C61 /* Frameworks */,
-				CD35EDEF26E89F9E005E3C61 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CD35EDF326E89F9E005E3C61 /* PBXTargetDependency */,
-			);
-			name = KurrencyUITests;
-			productName = KurrencyUITests;
-			productReference = CD35EDF126E89F9E005E3C61 /* KurrencyUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -342,10 +310,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					CD35EDE526E89F9E005E3C61 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = CD35EDCF26E89F9C005E3C61;
-					};
-					CD35EDF026E89F9E005E3C61 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = CD35EDCF26E89F9C005E3C61;
 					};
@@ -366,7 +330,6 @@
 			targets = (
 				CD35EDCF26E89F9C005E3C61 /* Kurrency */,
 				CD35EDE526E89F9E005E3C61 /* KurrencyTests */,
-				CD35EDF026E89F9E005E3C61 /* KurrencyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -388,13 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD35EDEF26E89F9E005E3C61 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				CD2AB17426EE1170006A6A90 /* TestConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,15 +397,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD35EDEB26E89F9E005E3C61 /* KurrencyTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CD35EDED26E89F9E005E3C61 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CD35EDF626E89F9E005E3C61 /* KurrencyUITests.swift in Sources */,
+				CD0D6B9626EEA881009C77C4 /* CurrencyServiceMock.swift in Sources */,
+				CD2AB17C26EE16B8006A6A90 /* MainViewModelTests.swift in Sources */,
+				CD0D6BA026EEAAB5009C77C4 /* CurrencyRouterMock.swift in Sources */,
+				CD2AB16F26EE0FA5006A6A90 /* ConfigLoaderTest.swift in Sources */,
+				CD2AB18E26EE1E70006A6A90 /* XCTestCase+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,11 +412,6 @@
 			isa = PBXTargetDependency;
 			target = CD35EDCF26E89F9C005E3C61 /* Kurrency */;
 			targetProxy = CD35EDE726E89F9E005E3C61 /* PBXContainerItemProxy */;
-		};
-		CD35EDF326E89F9E005E3C61 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CD35EDCF26E89F9C005E3C61 /* Kurrency */;
-			targetProxy = CD35EDF226E89F9E005E3C61 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -679,46 +627,6 @@
 			};
 			name = Release;
 		};
-		CD35EE0126E89F9E005E3C61 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2FQ2ETBMW;
-				INFOPLIST_FILE = KurrencyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nugroho.tech.KurrencyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Kurrency;
-			};
-			name = Debug;
-		};
-		CD35EE0226E89F9E005E3C61 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T2FQ2ETBMW;
-				INFOPLIST_FILE = KurrencyUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nugroho.tech.KurrencyUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Kurrency;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -745,15 +653,6 @@
 			buildConfigurations = (
 				CD35EDFE26E89F9E005E3C61 /* Debug */,
 				CD35EDFF26E89F9E005E3C61 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CD35EE0026E89F9E005E3C61 /* Build configuration list for PBXNativeTarget "KurrencyUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CD35EE0126E89F9E005E3C61 /* Debug */,
-				CD35EE0226E89F9E005E3C61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
