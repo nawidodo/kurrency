@@ -34,6 +34,8 @@
 		CD56BD0726EB10DF007BE033 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56BD0626EB10DF007BE033 /* Currency.swift */; };
 		CD56BD1226EB4421007BE033 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56BD1126EB4421007BE033 /* Error.swift */; };
 		CD56BD1A26EB47D5007BE033 /* MainViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD56BD1926EB47D5007BE033 /* MainViewControllerFactory.swift */; };
+		CD7064A726EF25550066C235 /* ViewModelCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7064A626EF25550066C235 /* ViewModelCache.swift */; };
+		CD7064AB26EF25EE0066C235 /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7064AA26EF25EE0066C235 /* UserDefaults+Extensions.swift */; };
 		CDC67A1426EB7F0B003E973A /* CurrencyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1326EB7F0B003E973A /* CurrencyListViewController.swift */; };
 		CDC67A1926EB81F0003E973A /* CurrencyListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1826EB81F0003E973A /* CurrencyListFactory.swift */; };
 		CDC67A1E26EB899D003E973A /* CurrencyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC67A1D26EB899D003E973A /* CurrencyRouter.swift */; };
@@ -90,6 +92,8 @@
 		CD56BD0626EB10DF007BE033 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		CD56BD1126EB4421007BE033 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		CD56BD1926EB47D5007BE033 /* MainViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerFactory.swift; sourceTree = "<group>"; };
+		CD7064A626EF25550066C235 /* ViewModelCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelCache.swift; sourceTree = "<group>"; };
+		CD7064AA26EF25EE0066C235 /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 		CDC67A1326EB7F0B003E973A /* CurrencyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListViewController.swift; sourceTree = "<group>"; };
 		CDC67A1826EB81F0003E973A /* CurrencyListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListFactory.swift; sourceTree = "<group>"; };
 		CDC67A1D26EB899D003E973A /* CurrencyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRouter.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				CDC67A4526EBAC7E003E973A /* CurrencyRateResponse.swift */,
 				CD56BD0626EB10DF007BE033 /* Currency.swift */,
 				CD56BD1126EB4421007BE033 /* Error.swift */,
+				CD7064A626EF25550066C235 /* ViewModelCache.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 		CDC67A5F26EBDD7D003E973A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CD7064AA26EF25EE0066C235 /* UserDefaults+Extensions.swift */,
 				CD35EE1626E8A262005E3C61 /* Extensions.swift */,
 				CDC67A7026EC9787003E973A /* UITextfield+Extensions.swift */,
 				CDC67A7526EC97B6003E973A /* String+Extensions.swift */,
@@ -376,6 +382,7 @@
 				CD56BD1A26EB47D5007BE033 /* MainViewControllerFactory.swift in Sources */,
 				CDC67A8526EC9881003E973A /* UIColor+Extensions.swift in Sources */,
 				CD56BCFE26EB0B47007BE033 /* CurrencyListRequest.swift in Sources */,
+				CD7064A726EF25550066C235 /* ViewModelCache.swift in Sources */,
 				CD56BD1226EB4421007BE033 /* Error.swift in Sources */,
 				CD35EE1726E8A262005E3C61 /* Extensions.swift in Sources */,
 				CDC67A1926EB81F0003E973A /* CurrencyListFactory.swift in Sources */,
@@ -389,6 +396,7 @@
 				CD56BCEF26EB0B35007BE033 /* EndpointType.swift in Sources */,
 				CD56BD0726EB10DF007BE033 /* Currency.swift in Sources */,
 				CD35EE0D26E8A137005E3C61 /* MainViewController.swift in Sources */,
+				CD7064AB26EF25EE0066C235 /* UserDefaults+Extensions.swift in Sources */,
 				CD56BCFF26EB0B47007BE033 /* ConfigManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

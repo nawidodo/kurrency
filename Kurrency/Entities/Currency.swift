@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Currency: NSObject {
+class Currency: NSObject, Codable {
     @objc var symbol: String =  ""
     @objc var name: String = ""
     var value: Double = 0 // Relative to USD

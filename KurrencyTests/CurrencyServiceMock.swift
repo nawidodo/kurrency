@@ -9,10 +9,7 @@ import Combine
 @testable import Kurrency
 
 class CurrencyServiceMock: CurrencyServiceType {
-    
-    public var currencyStub = PassthroughSubject<Set<Currency>, Error>()
-    public var quotesStub = PassthroughSubject<Quote, Error>()
-            
+                
     var currenciesResult: Result<Set<Currency>, Error>!
     var quotesResult: Result<Quote, Error>!
     
@@ -27,11 +24,5 @@ class CurrencyServiceMock: CurrencyServiceType {
             .publisher
             .eraseToAnyPublisher()
     }
-        
-    
-    func mockQuotesError() {
-        quotesStub.send(completion: .failure(ServiceError.invalidResponse))
-    }
-
 
 }

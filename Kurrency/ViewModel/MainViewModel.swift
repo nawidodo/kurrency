@@ -45,7 +45,8 @@ protocol ListViewModelType {
 }
 
 class MainViewModel: NSObject, MainViewModelType {
-                
+    
+    static let id = "MainViewModel"
     private var service: CurrencyServiceType
     private var subscribers: Set<AnyCancellable> = []
     private(set) var currencies: Set<Currency> = []
@@ -65,9 +66,16 @@ class MainViewModel: NSObject, MainViewModelType {
     }
     var currentMode: ListUseCase = .add
     
-    init(service: CurrencyServiceType, router: RouterType) {
+    init(service: CurrencyServiceType, router: RouterType, cache: ViewModelCache? = nil) {
         self.service = service
         self.router = router
+        if let cache = cache {
+            self.currencies = cache.currencies
+            self.shownCurrencies = cache.shownCurrencies
+            self.amount = cache.amount
+            self.factor = cache.factor
+            self.selectedID = cache.selectedID
+        }
     }
     
     func fetchCurrencies() {
@@ -113,8 +121,14 @@ class MainViewModel: NSObject, MainViewModelType {
                 default:
                     didGetQuotes?()
                 }
+                saveCache()
             })
             .store(in: &subscribers)
+    }
+    
+    private func saveCache() {
+        let cache = ViewModelCache(currencies: currencies, shownCurrencies: shownCurrencies, amount: amount, factor: factor, selectedID: selectedID)
+        UserDefaults.standard.setObject(cache, forKey: MainViewModel.id)
     }
     
     
@@ -137,6 +151,7 @@ class MainViewModel: NSObject, MainViewModelType {
     func updateAmount(_ amount: Double) {
         self.amount = amount
         amountDidChange?()
+        saveCache()
     }
     
     func showOptionsFor(index: Int, currency: Currency) {
@@ -158,7 +173,7 @@ class MainViewModel: NSObject, MainViewModelType {
 extension MainViewModel: ListViewModelType {
         
     var sections: [ListSection] {
-        var data = currentMode == .base ? currencies : currencies.subtracting(shownCurrencies).filter { $0.symbol != selectedID }
+        var data = currentMode == .base ? currencies : currencies.filter { !shownCurrencies.contains($0) && $0.symbol != selectedID }
         if let listFilter = listFilter {
             data = data.filter { listFilter.evaluate(with: $0) }
         }

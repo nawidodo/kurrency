@@ -46,6 +46,8 @@ class MainViewController: UIViewController {
     }
     
     private func initSetup(){
+        
+        idLabel.text = viewModel.selectedID
         amountLabel.text = viewModel.amount.formatted
         
         amountLabel.addTapGestureRecognizer { [unowned self] in
