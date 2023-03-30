@@ -150,7 +150,6 @@ class MainViewModel: NSObject, MainViewModelType {
     }
     
     func openCurrencyList(mode: ListUseCase) {
-        guard !self.currencies.isEmpty else { return }
         currentMode = mode
         listFilter = nil
         router.openList(viewModel: self)
