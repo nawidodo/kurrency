@@ -32,8 +32,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCell()
-        initSetup()
         setupViewModel()
+        initSetup()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -46,7 +46,7 @@ class MainViewController: UIViewController {
     }
     
     private func initSetup(){
-        
+        self.view.showLoading()
         idLabel.text = viewModel.selectedID
         amountLabel.text = viewModel.amount.formatted
         
@@ -61,6 +61,11 @@ class MainViewController: UIViewController {
     
     private func setupViewModel(){
         viewModel.fetchCurrencies()
+
+        viewModel.didGetCurrencies = { [unowned self] in
+            self.view.stopLoading()
+        }
+
         viewModel.didChooseCurrency = { [unowned self] in
             viewModel.getQuotes()
         }

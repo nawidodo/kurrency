@@ -23,6 +23,7 @@ protocol MainViewModelType {
     var shownCurrencies: [Currency] {get}
     var currencies: Set<Currency> {get}
     var didChooseCurrency: Completion? {get set}
+    var didGetCurrencies: Completion? {get set}
     var didGetQuotes: Completion? {get set}
     var baseDidChange: StringCompletion? {get set}
     var amountDidChange: Completion? {get set}
@@ -57,6 +58,7 @@ class MainViewModel: NSObject, MainViewModelType {
     var selectedID: String = "USD"
     var selectedIndex: Int = 0
     var didChooseCurrency: Completion?
+    var didGetCurrencies: Completion?
     var didGetQuotes: Completion?
     var baseDidChange: StringCompletion?
     var amountDidChange: Completion?
@@ -90,8 +92,11 @@ class MainViewModel: NSObject, MainViewModelType {
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-            }, receiveValue: { currencies in
+            }, receiveValue: { [unowned self] currencies in
                 self.currencies = currencies
+                DispatchQueue.main.async {
+                    self.didGetCurrencies?()
+                }
             })
             .store(in: &subscribers)
     }
@@ -118,7 +123,6 @@ class MainViewModel: NSObject, MainViewModelType {
                 }
                 switch currentMode {
                 case .base:
-                    let _ = shownCurrencies.popLast()
                     shownCurrencies = shownCurrencies.filter { $0.symbol != selectedID }
                     baseDidChange?(selectedID)
                 default:
@@ -146,6 +150,7 @@ class MainViewModel: NSObject, MainViewModelType {
     }
     
     func openCurrencyList(mode: ListUseCase) {
+        guard !self.currencies.isEmpty else { return }
         currentMode = mode
         listFilter = nil
         router.openList(viewModel: self)

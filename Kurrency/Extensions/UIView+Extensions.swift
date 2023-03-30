@@ -8,7 +8,9 @@
 import UIKit
 
 extension UIView {
-    
+
+    static let loadingViewTag = 26061990
+
     fileprivate struct AssociatedObjectKeys {
         static var tapGestureRecognizer = "MediaViewerAssociatedObjectKey_mediaViewer"
     }
@@ -40,6 +42,27 @@ extension UIView {
         } else {
             print("no action")
         }
+    }
+
+    func showLoading(style: UIActivityIndicatorView.Style = .large) {
+        var loading = viewWithTag(UIImageView.loadingViewTag) as? UIActivityIndicatorView
+        if loading == nil {
+           loading = UIActivityIndicatorView(style: style)
+        }
+
+        loading?.translatesAutoresizingMaskIntoConstraints = false
+        loading!.startAnimating()
+        loading!.hidesWhenStopped = true
+        loading?.tag = UIView.loadingViewTag
+        addSubview(loading!)
+        loading?.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        loading?.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    }
+
+    func stopLoading() {
+        let loading = viewWithTag(UIView.loadingViewTag) as? UIActivityIndicatorView
+        loading?.stopAnimating()
+        loading?.removeFromSuperview()
     }
 }
 
