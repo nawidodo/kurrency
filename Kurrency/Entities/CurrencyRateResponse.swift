@@ -9,23 +9,10 @@ import Foundation
 
 // MARK: - CurrencyRateResponse
 
-typealias Quote = [String: Double]
+typealias Rates = [String: Double]
 
 struct CurrencyRateResponse: Codable {
-    let success: Bool
-    let terms, privacy: String
     let timestamp: TimeInterval
-    let source: String
-    let quotes: Quote
-    
-    func rates() -> Quote {
-        var temp = Quote()
-        for (key, value) in quotes {
-            if key.hasPrefix(source) {
-                let newKey = String(key.suffix(3))
-                temp[newKey] = value
-            }
-        }
-        return temp
-    }
+    let base: String
+    let rates: Rates
 }

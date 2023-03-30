@@ -16,7 +16,7 @@ class CurrencyService: NSObject, CurrencyServiceType {
         
     func fetchCurrencies() -> AnyPublisher<Set<Currency>, Error> {
         var currencyList = CurrencyListRequest(url: config.baseURL, path: config.listPath)
-        currencyList.queries["access_key"] = config.accessKey
+        currencyList.queries["app_id"] = config.app_id
         guard let request = builder.build(endpoint: currencyList) else {
             return Fail(error: ServiceError.request).eraseToAnyPublisher()
         }
@@ -28,12 +28,12 @@ class CurrencyService: NSObject, CurrencyServiceType {
             .eraseToAnyPublisher()
     }
     
-    func fetchQuotes(currencies: [Currency], source: String) -> AnyPublisher<Quote, Error> {
+    func fetchQuotes(currencies: [Currency], base: String) -> AnyPublisher<Rates, Error> {
         let quotes = currencies.map { $0.symbol }.joined(separator: ",")
         var req = CurrencyRateRequest(url: config.baseURL, path: config.ratePath)
-        req.queries["access_key"] = config.accessKey
-        req.queries["currencies"] = quotes
-        req.queries["source"] = source
+        req.queries["app_id"] = config.app_id
+        req.queries["symbols"] = quotes
+        req.queries["base"] = base
         guard var request = builder.build(endpoint: req) else {
             return Fail(error: ServiceError.request).eraseToAnyPublisher()
         }
@@ -49,7 +49,7 @@ class CurrencyService: NSObject, CurrencyServiceType {
             .decode(type: CurrencyRateResponse.self, decoder: JSONDecoder())
             .map { [unowned self] response in
                 latestUpdate = Date().timeIntervalSince1970
-                return response.rates()
+                return response.rates
             }
             .eraseToAnyPublisher()
     }
@@ -57,5 +57,5 @@ class CurrencyService: NSObject, CurrencyServiceType {
 
 protocol CurrencyServiceType {
     func fetchCurrencies() -> AnyPublisher<Set<Currency>, Error>
-    func fetchQuotes(currencies: [Currency], source: String) -> AnyPublisher<Quote, Error>
+    func fetchQuotes(currencies: [Currency], base: String) -> AnyPublisher<Rates, Error>
 }

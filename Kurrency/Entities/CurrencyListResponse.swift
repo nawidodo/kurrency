@@ -8,20 +8,33 @@
 import Foundation
 
 // MARK: - CurrencyListResponse
-struct CurrencyListResponse: Codable {
-    let success: Bool
-    let terms, privacy: String
-    let currencies: [String: String]
-    
+//struct CurrencyListResponse: Codable {
+//    let currencies: [String: String]
+//
+//    func convert() -> Set<Currency> {
+//        var curr = Set<Currency>()
+//        for (key, value) in self.currencies.sorted(by: <) {
+//            let cu = Currency()
+//            cu.symbol = key
+//            cu.name = value
+//            curr.insert(cu)
+//        }
+//
+//        return curr
+//    }
+//}
+
+typealias CurrencyListResponse = [String: String]
+
+extension CurrencyListResponse {
     func convert() -> Set<Currency> {
         var curr = Set<Currency>()
-        for (key, value) in self.currencies.sorted(by: <) {
+        for (key, value) in self {
             let cu = Currency()
             cu.symbol = key
             cu.name = value
             curr.insert(cu)
         }
-        
         return curr
     }
 }

@@ -5,13 +5,13 @@
 	<key>baseURL</key>
 	<dict>
 		<key>relative</key>
-		<string>http://api.currencylayer.com</string>
+		<string>https://openexchangerates.org/api</string>
 	</dict>
 	<key>listPath</key>
-	<string>/list</string>
+	<string>/currencies.json</string>
 	<key>ratePath</key>
-	<string>/live</string>
-	<key>accessKey</key>
-	<string>2e480d92-13b6-11ec-82a8-0242ac130003</string>
+	<string>/latest.json</string>
+	<key>app_id</key>
+	<string>f7f39d1f84074fdea979e6656994c954</string>
 </dict>
 </plist>

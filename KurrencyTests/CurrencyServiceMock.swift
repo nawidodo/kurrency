@@ -11,7 +11,7 @@ import Combine
 class CurrencyServiceMock: CurrencyServiceType {
                 
     var currenciesResult: Result<Set<Currency>, Error>!
-    var quotesResult: Result<Quote, Error>!
+    var quotesResult: Result<Rates, Error>!
     
     func fetchCurrencies() -> AnyPublisher<Set<Currency>, Error> {
         return currenciesResult
@@ -19,7 +19,7 @@ class CurrencyServiceMock: CurrencyServiceType {
             .eraseToAnyPublisher()
     }
     
-    func fetchQuotes(currencies: [Currency], source: String) -> AnyPublisher<Quote, Error> {
+    func fetchQuotes(currencies: [Currency], base: String) -> AnyPublisher<Rates, Error> {
         return quotesResult
             .publisher
             .eraseToAnyPublisher()

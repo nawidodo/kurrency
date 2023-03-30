@@ -27,8 +27,8 @@ class MainViewModelTests: XCTestCase {
         return [idr, jpy, usd]
     }()
     
-    lazy var quotes: Quote = {
-        var q = Quote()
+    lazy var quotes: Rates = {
+        var q = Rates()
         q["IDR"] = 14000
         return q
     }()
@@ -99,7 +99,7 @@ class MainViewModelTests: XCTestCase {
         let result = expectation(description: "all values received")
         mockService.quotesResult = .failure(ServiceError.invalidResponse)
         mockService
-            .fetchQuotes(currencies: [], source: "USD")
+            .fetchQuotes(currencies: [], base: "USD")
             .sink {  _ in
                 // Then
                 result.fulfill()

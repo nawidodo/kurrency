@@ -8,7 +8,7 @@
 import Foundation
 
 struct CurrencyLayerConfig: Codable {
-    var accessKey: String
+    var app_id: String
     var baseURL: URL
     var listPath: String
     var ratePath: String

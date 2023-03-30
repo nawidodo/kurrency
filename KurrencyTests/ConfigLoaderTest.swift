@@ -17,10 +17,10 @@ class ConfigLoaderTest: XCTestCase {
         //When
         let config = bundle.resolve(type: CurrencyLayerConfig.self, name: "TestConfig", ext: "plist")
         //Then
-        XCTAssertEqual(config?.accessKey, "2e480d92-13b6-11ec-82a8-0242ac130003")
-        XCTAssertEqual(config?.baseURL, URL(string: "http://api.currencylayer.com"))
-        XCTAssertEqual(config?.listPath, "/list")
-        XCTAssertEqual(config?.ratePath, "/live")
+        XCTAssertEqual(config?.app_id, "f7f39d1f84074fdea979e6656994c954")
+        XCTAssertEqual(config?.baseURL, URL(string:"https://openexchangerates.org/api"))
+        XCTAssertEqual(config?.listPath, "/currencies.json")
+        XCTAssertEqual(config?.ratePath, "/latest.json")
     }
     
     func testLoadConfigErrorFile() {

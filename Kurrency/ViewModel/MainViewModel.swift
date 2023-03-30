@@ -98,7 +98,7 @@ class MainViewModel: NSObject, MainViewModelType {
     
     private func runLiveUpdate() {
         service
-            .fetchQuotes(currencies: shownCurrencies, source: "USD")
+            .fetchQuotes(currencies: shownCurrencies, base: "USD")
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
@@ -119,6 +119,7 @@ class MainViewModel: NSObject, MainViewModelType {
                 switch currentMode {
                 case .base:
                     let _ = shownCurrencies.popLast()
+                    shownCurrencies = shownCurrencies.filter { $0.symbol != selectedID }
                     baseDidChange?(selectedID)
                 default:
                     didGetQuotes?()
