@@ -2,7 +2,7 @@
 //  CurrencyLayerConfig.swift
 //  Kurrency
 //
-//  Created by Nugroho Arief Widodo on 06/09/21.
+//  Created by Nugroho Arief Widodo on 28/03/23.
 //
 
 import Foundation

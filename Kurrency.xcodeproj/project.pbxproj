@@ -12,7 +12,6 @@
 		CD2AB16F26EE0FA5006A6A90 /* ConfigLoaderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB16E26EE0FA5006A6A90 /* ConfigLoaderTest.swift */; };
 		CD2AB17426EE1170006A6A90 /* TestConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD2AB17326EE1170006A6A90 /* TestConfig.plist */; };
 		CD2AB17C26EE16B8006A6A90 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB17B26EE16B8006A6A90 /* MainViewModelTests.swift */; };
-		CD2AB18E26EE1E70006A6A90 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD2AB18D26EE1E70006A6A90 /* XCTestCase+Extensions.swift */; };
 		CD35EDD426E89F9C005E3C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EDD326E89F9C005E3C61 /* AppDelegate.swift */; };
 		CD35EDD626E89F9C005E3C61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD35EDD526E89F9C005E3C61 /* SceneDelegate.swift */; };
 		CD35EDDD26E89F9E005E3C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD35EDDC26E89F9E005E3C61 /* Assets.xcassets */; };
@@ -67,7 +66,6 @@
 		CD2AB17B26EE16B8006A6A90 /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		CD2AB18026EE177B006A6A90 /* CurrencyServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceMock.swift; sourceTree = "<group>"; };
 		CD2AB18526EE1CFF006A6A90 /* CurrencyRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRouterMock.swift; sourceTree = "<group>"; };
-		CD2AB18D26EE1E70006A6A90 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		CD35EDD026E89F9C005E3C61 /* Kurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD35EDD326E89F9C005E3C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD35EDD526E89F9C005E3C61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				CD2AB17B26EE16B8006A6A90 /* MainViewModelTests.swift */,
 				CD2AB18026EE177B006A6A90 /* CurrencyServiceMock.swift */,
 				CD2AB18526EE1CFF006A6A90 /* CurrencyRouterMock.swift */,
-				CD2AB18D26EE1E70006A6A90 /* XCTestCase+Extensions.swift */,
 			);
 			path = KurrencyTests;
 			sourceTree = "<group>";
@@ -413,7 +410,6 @@
 				CD2AB17C26EE16B8006A6A90 /* MainViewModelTests.swift in Sources */,
 				CD0D6BA026EEAAB5009C77C4 /* CurrencyRouterMock.swift in Sources */,
 				CD2AB16F26EE0FA5006A6A90 /* ConfigLoaderTest.swift in Sources */,
-				CD2AB18E26EE1E70006A6A90 /* XCTestCase+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
